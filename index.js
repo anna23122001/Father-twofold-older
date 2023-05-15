@@ -7,23 +7,34 @@
  */
 
 const ageTwoFold = (sonAge, fatherAge) =>{
-    if((fatherAge - sonAge) <= 15 || sonAge < 0) {
+    let result = 0;
+    if((fatherAge - sonAge) <= 15 || sonAge <= 0) {
         return 'You entered wrong information';
     };
+    if(fatherAge / sonAge === 2){
+        return result;
+    }
 
-    let result = 0;
-    while (sonAge * 2 < fatherAge) {
+   if (fatherAge / sonAge > 2){
+    while (fatherAge / sonAge !== 2){
         fatherAge++;
         sonAge++;
         result++;
+    }
+    return result;
+   }
+    while (fatherAge / sonAge !== 2) {
+        fatherAge--;
+        sonAge--;
+        result++;
     };
-  return result;
+  return -result;
 }
-const fatherAge = 60;
-const sonAge = 15;
+const fatherAge = 48;
+const sonAge = 25;
 
 const years = ageTwoFold(sonAge, fatherAge);
-console.log(`Через ${years} лет отец будет вдвое старше сына.`);
+console.log(years);
         
 
             
